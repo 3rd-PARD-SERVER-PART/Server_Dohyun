@@ -3,7 +3,9 @@ package com.prad.SecondSeminar.Controller;
 import lombok.RequiredArgsConstructor;
 import com.prad.SecondSeminar.Service.UserService;
 import org.springframework.web.bind.annotation.*;
-import com.prad.SecondSeminar.UserDto.UserDto
+import com.prad.SecondSeminar.UserDto.UserDto;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -17,7 +19,7 @@ public class Controller {
     }
 
     @GetMapping("/findAll")
-    public List<UserDto> findAll(){
+    public List<UserDto> findAll() {
         return userService.findAll();
     }
 
