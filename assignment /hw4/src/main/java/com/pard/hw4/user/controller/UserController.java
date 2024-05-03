@@ -28,6 +28,9 @@ public class UserController {
         return userService.readAll();
     }
 
+    @GetMapping("/{userId}")
+    public UserDto.Read readById(@PathVariable Long userId) { return userService.readById(userId); }
+
     @RequestMapping("/loan")
     @PatchMapping
     public String loanById(@RequestParam Long bookId, @RequestParam Long userId){

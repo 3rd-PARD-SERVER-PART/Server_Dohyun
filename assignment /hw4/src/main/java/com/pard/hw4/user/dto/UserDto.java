@@ -23,8 +23,6 @@ public class UserDto {
     public static class Read{
         private Long id;
         private String name;
-        private Integer age;
-        private String major;
         private List<BookDto.Read> books;
 
         public Read(User user){
