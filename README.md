@@ -1,32 +1,23 @@
-# HW3 image 
+# HW4 image 
 
-## CLUD
-### Post
-![Post.png](assignment%20/hw3/src/image/Post.png)
 
-### readAll
-![readAll.png](assignment%20/hw3/src/image/readAll.png)
+### bookGet, bookPost 
+![BookGet.png](assignment%20/hw4/image/BookGet.png)
+![BookPost.png](assignment%20/hw4/image/BookPost.png)
 
-### Update
-![Patch(update).png](assignment%20/hw3/src/image/Patch(update).png)
+### userGet, userPost
+![UserGet.png](assignment%20/hw4/image/UserGet.png)
+![UserPost.png](assignment%20/hw4/image/UserPost.png)
+![UsersLoanBookGet.png](assignment%20/hw4/image/UsersLoanBookGet.png)
 
-### Delete
-![Delete.png](assignment%20/hw3/src/image/Delete.png)
+### readbyId 
+![ReadById.png](assignment%20/hw4/image/ReadById.png)
 
-![readAll%20after%20delete.png](assignment%20/hw3/src/image/readAll%20after%20delete.png)
+### loanBook, notLonnBook
+![LoanBook.png](assignment%20/hw4/image/LoanBook.png)
+![LoanBook2.png](assignment%20/hw4/image/LoanBook2.png)
+![NotLoanBook.png](assignment%20/hw4/image/NotLoanBook.png)
 
-![DB.png](assignment%20/hw3/src/image/DB.png)
-
-## JPA
-
-#### sum of salaries
-![Img1.png](assignment%20/hw3/src/image/Img1.png)
-
-#### find salary by employee name 
-![Img2.png](assignment%20/hw3/src/image/Img2.png)
-
-#### find salary by position
-![Img3.pmg](assignment%20/hw3/src/image/Img3.png)
-
-![Img4.png](assignment%20/hw3/src/image/Img4.png)
-
+### returnBook
+![ReturnBook.png](assignment%20/hw4/image/ReturnBook.png)
+![ReturnPatchBook.png](assignment%20/hw4/image/ReturnPatchBook.png)
