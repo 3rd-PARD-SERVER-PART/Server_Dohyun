@@ -1,6 +1,6 @@
 package com.pard.hw4.book.entity;
 
-import com.pard.hw4.book.dto.BookCreateDto;
+import com.pard.hw4.book.dto.BookDto;
 import com.pard.hw4.user.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
@@ -19,17 +19,22 @@ public class Book {
     private Integer isLoan;
 
 
-    public static Book toEntity(BookCreateDto dto) {
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public static Book toEntity(BookDto.Create dto) {
         return Book.builder()
                 .name(dto.getName())
                 .isLoan(0)
                 .build();
     }
     public void LoanBook(User user){
-        this.isLoan = 1 ; // 빌림.
+        this.isLoan = 1;
+        this.user = user; // 빌림.
     }
 
     public void returnBook(User user){
-        this.isLoan = 0 ; // 빌림.
+        this.isLoan = 0 ; // 반납.
     }
 }

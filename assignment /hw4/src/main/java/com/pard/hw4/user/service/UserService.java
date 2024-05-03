@@ -1,6 +1,6 @@
 package com.pard.hw4.user.service;
 
-import com.pard.hw4.book.dto.BookReadDto;
+import com.pard.hw4.book.dto.BookDto;
 import com.pard.hw4.user.dto.UserDto;
 import com.pard.hw4.user.entity.User;
 import com.pard.hw4.user.repo.UserRepo;
@@ -28,7 +28,7 @@ public class UserService {
                 .stream()
                 .map(user -> new UserDto.Read(user,
                         user.getBooks().stream()
-                                .map(BookReadDto::new)
+                                .map(BookDto.Read::new)
                                 .collect(Collectors.toList()))
                 ).collect(Collectors.toList());
     }
