@@ -25,7 +25,7 @@ public class SecurityConfig {
         );
         http.oauth2Login(
                 oauth -> oauth
-                        .loginPage("/loginForm")
+                        .loginPage("")
                         .defaultSuccessUrl("/home")
                         .userInfoEndpoint(
                                 userInfoEndpointConfig ->
