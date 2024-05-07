@@ -38,24 +38,46 @@ public class UserLoanService {
     }
 
     public String borrowBook(UserLoanDto.Create dto){
-        if(checkedBookLoaning(dto)) {
+        if(checkedBookLoan(dto)) {
             createLoan(dto);
-            changeBookLoaning(dto, true);
+            changeBookLoan(dto, true);
             return "대출되었습니다.";
         }
         return "이미 누군가 빌려갔습니다.";
     }
 
-    public void changeBookLoaning(UserLoanDto.Create dto, boolean loan){
+    public void changeBookLoan(UserLoanDto.Create dto, boolean loan){
         Book book = bookRepo.findById(dto.getBook().getBookId()).orElseThrow();
         book.change(loan);
         bookRepo.save(book);
     }
-    public boolean checkedBookLoaning(UserLoanDto.Create dto){
+    public boolean checkedBookLoan(UserLoanDto.Create dto){
         return !dto.getBook().isLoan();
     }
 
-    public String returnBook(Long bookId){
-        return "이미 반납된 책입니다.";
+
+    public boolean checkedBookLoan(Long loanBookId){
+        return userLoanRepo.findById(loanBookId).orElseThrow().isLoan();
+    }
+
+    public void changeLoanHistory(Long loanBookId, boolean loan){
+        LoanBookHistory loanBookHistory = userLoanRepo.findById(loanBookId).orElseThrow();
+        loanBookHistory.change(loan);
+        userLoanRepo.save(loanBookHistory);
+    }
+
+    public void changeBookLoan(Long loanBookId, boolean loan){
+        long bookId = userLoanRepo.findById(loanBookId).orElseThrow().getId();
+        Book book = bookRepo.findById(bookId).orElseThrow();
+        book.change(loan);
+        bookRepo.save(book);
+    }
+    public String returnBook(Long loanBookId){
+        if(checkedBookLoan(loanBookId)){
+            return "이미 반납된 책입니다.";
+        }
+        changeBookLoan(loanBookId, false);
+        changeLoanHistory(loanBookId, true);
+        return "반납되었습니다.";
     }
 }

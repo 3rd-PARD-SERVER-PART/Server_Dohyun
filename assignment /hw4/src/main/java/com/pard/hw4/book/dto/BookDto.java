@@ -22,7 +22,6 @@ public class BookDto {
         private Long bookId;
         private String name;
         private boolean isLoan;
-        //user 값을 넣기 위해 userDto를 가져옴.
 
         // do not loan book
         public Read(Book book){

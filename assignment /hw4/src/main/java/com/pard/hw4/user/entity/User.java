@@ -1,6 +1,5 @@
 package com.pard.hw4.user.entity;
 
-import com.pard.hw4.book.entity.Book;
 import com.pard.hw4.user.dto.UserDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,7 +23,7 @@ public class User {
     private String name;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Book> books = new ArrayList<>();
+    private List<LoanBookHistory> userLoanHistories = new ArrayList<>();
 
     // method 방식은 update가 가능하다.
     public static User toEntity(UserDto.Create dto){

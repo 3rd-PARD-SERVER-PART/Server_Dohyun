@@ -30,10 +30,10 @@ public class UserDto {
             this.name = user.getName();
         }
 
-        public Read(User user, List<BookDto.Read> books){
-            this.id = user.getId();
-            this.name = user.getName();
-            this.books = books;
-        }
+//        public Read(User user, List<BookDto.Read> books){
+//            this.id = user.getId();
+//            this.name = user.getName();
+//            this.books = books;
+//        }
     }
 }

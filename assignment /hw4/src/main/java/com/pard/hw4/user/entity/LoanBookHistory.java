@@ -24,7 +24,7 @@ public class LoanBookHistory {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ColumnDefault("true")
+    @ColumnDefault("false")
     private boolean loan;
     public static LoanBookHistory toEntity(User user, Book book){
         return LoanBookHistory.builder()
@@ -33,7 +33,7 @@ public class LoanBookHistory {
                 .build();
     }
 
-    public void changeLoan(boolean loan){
+    public void change(boolean loan){
         this.loan = loan;
     }
 }

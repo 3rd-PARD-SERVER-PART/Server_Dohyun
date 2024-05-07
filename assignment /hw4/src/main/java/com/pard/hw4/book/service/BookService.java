@@ -29,7 +29,7 @@ public class BookService {
     public List<BookDto.Read> findAll(){
         return bookRepo.findAll()
                 .stream()
-                .map(BookDto.Read::new
-                ).collect(Collectors.toList());
+                .map(BookDto.Read::new)
+                .collect(Collectors.toList());
     }
 }
