@@ -12,8 +12,8 @@ public class SwaggerConfig {
     public OpenAPI openAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("지옥의 pard 4차 과제 review")
-                        .description("이거 어려웠다 진짜...ㄹ")
+                        .title("즐거운의 pard 5차 과제")
+                        .description("행복한 도서관에 오신 걸 환영합니다~")
                         .version("1.0.0"));
     }
 }
