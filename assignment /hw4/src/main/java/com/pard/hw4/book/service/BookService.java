@@ -32,32 +32,4 @@ public class BookService {
                 .map(BookDto.Read::new
                 ).collect(Collectors.toList());
     }
-    public String loanById(Long bookId, Long userId){
-        Book book = bookRepo.findById(bookId).orElseThrow(() -> new RuntimeException("Book not found with id: " + bookId));;
-        User user = userRepo.findById(userId).orElseThrow(() -> new RuntimeException("Book not found with id: " + userId));
-        if(book.getIsLoan() == 1){
-            return "대여 할 수 없습니다...";
-        }
-        else {
-            book.LoanBook(user);
-            user.updateUser(book);
-            userRepo.save(user);
-            bookRepo.save(book);
-        }
-        return "대여 되셨습니다.";
-    }
-
-    public String returnById(Long bookId, Long userId){
-        Book book = bookRepo.findById(bookId).orElseThrow(() -> new RuntimeException("Book not found with id: " + bookId));;
-        User user = userRepo.findById(userId).orElseThrow(() -> new RuntimeException("Book not found with id: " + userId));
-        if(book.getIsLoan() == 0){
-            return "대여 할 수 있습니다.";
-        }
-        else {
-            book.returnBook(user);
-            userRepo.save(user);
-            bookRepo.save(book);
-        }
-        return "반납이 되었습니다.";
-    }
 }

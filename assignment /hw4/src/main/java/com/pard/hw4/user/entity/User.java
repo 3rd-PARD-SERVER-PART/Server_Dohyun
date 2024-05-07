@@ -21,7 +21,6 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -32,14 +31,5 @@ public class User {
         return User.builder()
                 .name(dto.getName())
                 .build();
-    }
-
-    public void updateUser(Book book){
-        if(book.getIsLoan() == 0) {
-            this.books.add(book);
-        }
-        else if (book.getIsLoan() == 1){
-            this.books.removeIf(b -> b.getBookId().equals(book.getBookId()));
-        }
     }
 }

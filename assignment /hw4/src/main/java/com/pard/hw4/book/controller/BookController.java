@@ -24,15 +24,4 @@ public class BookController {
         return bookService.findAll();
     }
 
-    @RequestMapping("/loan")
-    @PatchMapping
-    public String loanById(@RequestParam Long bookId, @RequestParam Long userId){
-        return bookService.loanById(bookId, userId);
-    }
-
-    @RequestMapping("/return")
-    @PatchMapping
-    public String returnById(@RequestParam Long bookId, @RequestParam Long userId){
-        return bookService.returnById(bookId, userId);
-    }
 }

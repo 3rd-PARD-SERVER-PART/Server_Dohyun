@@ -4,6 +4,7 @@ import com.pard.hw4.book.dto.BookDto;
 import com.pard.hw4.user.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 
 @Entity
 @Getter
@@ -16,7 +17,9 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bookId;
     private String name;
-    private Integer isLoan;
+
+    @ColumnDefault("0")
+    private boolean isLoan;
 
 
     @ManyToOne
@@ -26,15 +29,11 @@ public class Book {
     public static Book toEntity(BookDto.Create dto) {
         return Book.builder()
                 .name(dto.getName())
-                .isLoan(0)
                 .build();
     }
-    public void LoanBook(User user){
-        this.isLoan = 1;
-        this.user = user; // 빌림.
+
+    public void change(boolean loan){
+        this.isLoan = loan;
     }
 
-    public void returnBook(User user){
-        this.isLoan = 0 ; // 반납.
-    }
 }

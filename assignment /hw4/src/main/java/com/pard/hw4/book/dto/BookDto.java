@@ -12,7 +12,7 @@ public class BookDto {
     public static class Create {
         private String name;
         private Long bookId;
-        private Integer isLoan;
+        private boolean isLoan;
     }
 
     @Getter
@@ -21,14 +21,14 @@ public class BookDto {
     public static class Read {
         private Long bookId;
         private String name;
-        private Integer isLoan;
+        private boolean isLoan;
         //user 값을 넣기 위해 userDto를 가져옴.
 
         // do not loan book
         public Read(Book book){
             this.bookId = book.getBookId();
             this.name = book.getName();
-            this.isLoan = book.getIsLoan();
+            this.isLoan = book.isLoan();
         }
     }
 }
