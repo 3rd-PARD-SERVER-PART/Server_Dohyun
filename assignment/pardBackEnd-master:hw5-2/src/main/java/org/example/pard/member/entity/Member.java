@@ -15,6 +15,7 @@ import org.example.pard.member.dto.MemberCreateDTO;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+// database table mapping
 public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -26,6 +27,8 @@ public class Member {
 
     private int age;
 
+
+    // 아이디, 나이, 이름, 파트
     public Member toEntity(MemberCreateDTO dto) {
         return Member.builder()
                 .age(dto.getAge())

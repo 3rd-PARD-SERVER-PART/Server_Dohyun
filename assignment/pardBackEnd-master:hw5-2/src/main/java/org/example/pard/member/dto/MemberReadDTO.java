@@ -10,12 +10,15 @@ import org.example.pard.member.entity.Member;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+//member을 읽도혹 하는 DTO
 public class MemberReadDTO {
     private Long id;
     private String name;
     private String part;
     private int age;
 
+
+    //해당 맴버의 id, 나이, 이름, 파트 읽어드림.
     public MemberReadDTO toDTO(Member member) {
         return MemberReadDTO.builder()
                 .id(member.getId())
