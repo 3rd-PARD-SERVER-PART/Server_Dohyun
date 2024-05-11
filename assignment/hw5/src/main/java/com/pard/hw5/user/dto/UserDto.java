@@ -9,6 +9,9 @@ import lombok.Setter;
 import java.util.List;
 
 
+/* User의 장바구니, data security 를 위해 직접 User에 다가가는 것이 아닌 DTO를 통해 들어오는 정보 관리.
+    Dto 는 각 method 마다 나누어 주는 것을 추천, update, read, create 등등등
+ */
 public class UserDto {
     @Setter
     @Getter

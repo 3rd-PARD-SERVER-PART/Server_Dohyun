@@ -28,6 +28,11 @@ public class UserLoanService {
                 bookRepo.findById(dto.getBook().getBookId()).orElseThrow()));
     }
 
+    public UserLoanDto.Update checkLoanToBookNameAndUserName(String bookName, String userName){
+        return (UserLoanDto.Update) userLoanRepo.findByUserAndBook(
+                userRepo.findByName(userName),
+                bookRepo.findByName(bookName));
+    }
     public List<UserLoanDto.Update> findAll(){
         return userLoanRepo.findAll()
                 .stream()

@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+//client가 원하는 정보를 전달하거나 저장하는 직접적인 작용을 함. controller 에서 보낸 정보를 바탕으로 행동을 한다.
 public class UserService {
     private final UserRepo userRepo;
 

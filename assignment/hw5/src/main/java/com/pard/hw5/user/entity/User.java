@@ -2,16 +2,15 @@ package com.pard.hw5.user.entity;
 
 import com.pard.hw5.user.dto.UserDto;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
+// setter 를 넣어 줌으로써 데이터베이스 상 정보 관리 가능.
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder

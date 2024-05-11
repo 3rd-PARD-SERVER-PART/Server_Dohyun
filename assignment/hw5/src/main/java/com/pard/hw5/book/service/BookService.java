@@ -3,8 +3,6 @@ package com.pard.hw5.book.service;
 import com.pard.hw5.book.dto.BookDto;
 import com.pard.hw5.book.entity.Book;
 import com.pard.hw5.book.repo.BookRepo;
-import com.pard.hw5.user.entity.User;
-import com.pard.hw5.user.repo.UserRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +14,6 @@ import java.util.stream.Collectors;
 public class BookService {
 
     private final BookRepo bookRepo;
-    private final UserRepo userRepo;
     public void createBook(BookDto.Create dto){
         bookRepo.save(Book.toEntity(dto));
     }

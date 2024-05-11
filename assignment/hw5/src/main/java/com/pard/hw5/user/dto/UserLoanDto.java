@@ -30,11 +30,13 @@ public class UserLoanDto {
         private UserDto.Read user;
         private boolean isLoan;
 
-        public Update(LoanBookHistory loanBookHistory, UserDto.Read user, BookDto.Read book){
+        public Update(LoanBookHistory loanBookHistory, UserDto.Read user, BookDto.Read book) {
             this.id = loanBookHistory.getId();
             this.isLoan = loanBookHistory.isLoan();
             this.book = book;
             this.user = user;
         }
     }
+
+
 }

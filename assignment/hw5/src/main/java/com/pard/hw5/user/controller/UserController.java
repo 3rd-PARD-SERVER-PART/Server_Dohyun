@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/user")
+// client 와 직접 소통을 하여 service의 행동을 구상해준다.
 public class UserController {
     private final UserService userService;
     private final UserLoanService userLoanService;
@@ -22,9 +23,14 @@ public class UserController {
         userService.createUser(dto);
         return "추가됨";
     }
+    @GetMapping("")
+    @Operation(summary = "유저 이름과 책 이름", description = "앞선 summary 을 통해 알고자 하는 책 정보.")
+    public UserLoanDto.Update checkLoanToBookNameAndUserName(@RequestParam String userName, @RequestParam String bookName){
+        return userLoanService.checkLoanToBookNameAndUserName(bookName, userName);
+    }
 
     @GetMapping("")
-    @Operation(summary = "user들의 모든 정보", description = "모든 user의 정보를 알아보는 시간을 가져보자.")
+    @Operation(summary = "user 들의 모든 정보", description = "모든 user 의 정보를 알아보는 시간을 가져보자.")
     public List<UserDto.Read> readAll(){
         return userService.readAll();
     }
