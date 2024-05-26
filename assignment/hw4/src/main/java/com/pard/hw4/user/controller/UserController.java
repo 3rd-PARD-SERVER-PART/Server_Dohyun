@@ -37,7 +37,7 @@ public class UserController {
     @Operation(summary = "모든 대출 기록 확인", description = "대출 되었거나 안된 모든 대출기록을 확인한다.")
     public List<UserLoanDto.Update> findAll(){ return userLoanService.findAll(); }
 
-    @PostMapping("/loan")
+    @PostMapping("/loan")§
     @Operation(summary = "대출 허실..?", description = "해당 user의 id와 책의 id를 통해 빌릴 수 있습니다.")
     public String loanBook(@RequestBody UserLoanDto.Create dto){
         return userLoanService.borrowBook(dto);
